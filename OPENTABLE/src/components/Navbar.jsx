@@ -1,15 +1,16 @@
 import React from "react"
 import { Outlet, Link } from "react-router-dom";
-
+import '../CSS/navbar.css'
 const Navbar = (props) => {
   return (
    <>
-    <nav>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/aboutus">About us</Link></li>
-        <li><Link to="/getstarted">Login</Link></li>
-      </ul>
+    <nav className="nav">
+    
+    <Link to="/" className="Link"><div className="navdiv a">Home</div></Link>
+    <Link to="/aboutus" className="Link"><div className="navdiv b">About us</div></Link>
+    <Link to="/login" className="Link"><div className="navdiv c">Log in</div></Link>
+    <Link to="/getstarted" className="Link"><div className="navdiv d">Sign up</div></Link>
+    
     </nav>
     <Outlet/>
     </>

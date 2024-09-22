@@ -4,23 +4,32 @@ import Home from './components/Home'
 import Navbar from './components/Navbar'
 import Aboutus from './components/Aboutus'
 import Login from './components/Login'
-import {BrowserRouter,Routes,Route} from "react-router-dom"
-
+import Get_started from './components/Get_started'
+// import {BrowserRouter,Routes,Route} from "react-router-dom"
+import { createBrowserRouter ,RouterProvider,Route} from 'react-router-dom'
 function App() {
-  const [count, setCount] = useState(0)
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <><Navbar/><Home/></>
+    },
+    {
+      path: "/aboutus",
+      element: <><Navbar/><Aboutus/></>
+    },
+    {
+      path: "/login",
+      element: <><Navbar/><Login/></>
+    },
+    {
+      path:"/getstarted",
+      element : <Get_started/>
+    }
+  ])
 
   return (
     <>
-      <BrowserRouter>
-          <Routes>
-              <Route path='/' element = {<Navbar/>}> 
-                  <Route index element = {<Home/>}></Route>
-                  <Route path='aboutus' element = {<Aboutus/>}></Route>
-                  <Route path='getstarted' element = {<Login/>}></Route>
-              </Route>
-
-          </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </>
   )
 }
