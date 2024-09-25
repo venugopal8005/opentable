@@ -1,10 +1,13 @@
 import React from "react"
+import '../CSS/signup.css'
 
 const Get_started = (props) => {
   return (
-    <div>
-      lets get Get_started
-    </div>
+   <>
+    <div className="logo"><a href="/">OpenTable</a></div>
+    
+
+   </>
   )
 };
 
