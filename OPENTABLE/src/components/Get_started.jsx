@@ -6,7 +6,7 @@ const Get_started = (props) => {
    <>
     <div className="logo"><a href="/">OpenTable</a></div>
     
-
+      
    </>
   )
 };
