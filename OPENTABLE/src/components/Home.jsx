@@ -1,6 +1,6 @@
 import React from "react"
 import '../CSS/home.css'
-const home = (props) => {
+const Home = (props) => {
   return (
    <>
       <div className="seg1">
@@ -16,4 +16,4 @@ const home = (props) => {
   )
 };
 
-export default home;
+export default Home;
