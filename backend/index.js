@@ -1,29 +1,52 @@
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true }).then(() => { 
+ console.log('Connected to database!');}).catch(() => {  
+  console.log('Connection failed!');
+});
 
-// Replace the placeholder with your Atlas connection string
-const uri = "mongodb+srv://vgv38634:oY8ktVmskcKRYkbE@okayletsdoit.poy0m.mongodb.net/";
-
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri,  {
-        serverApi: {
-            version: ServerApiVersion.v1,
-            strict: true,
-            deprecationErrors: true,
-        }
-    }
-);
-
-async function run() {
-  try {
+const userschema = new mongoose.Schema({
+  name: String,
+  gender: String,
+});
+const User = mongoose.model('User', userschema);
+const user = new User({
+  name: 'John',
+  gender:'male'
+});
+const user2 = new User({
+  name: 'Jane',
+  gender:'female'
+});
+const user3 = new User({
+  name: 'Dick',
+  gender:'dick'
+});
+// User.updateOne(
+//   {name:"Dick"},
+//   {$set:{name:"not dick"}}
+// ).then(result => console.log(result))
+// .catch(error => console.log(error));
+// User.insertMany([user2,user3])
+//     .then(() => console.log("Data inserted successfully!"))
+//     .catch(err => console.error("Error inserting data:", err));
+User.find({})
+    .then(anythings =>{
+      console.log(anythings.forEach(data=>console.log(data.name)));
    
-    await client.connect();
+    }
+                  )
+    .catch(error => console.error("Error fetching names:", error)); 
 
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-run().catch(console.dir);
+
+app.use(bodyParser.json());
+
+app.listen(3000, () => {
+ 
+  console.log('Server is running on port 3000');
+});
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
