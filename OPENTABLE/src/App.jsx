@@ -19,7 +19,7 @@ function App() {
     },
     {
       path: "/login",
-      element: <><Navbar/><Login/></>
+      element: <><Login/></>
     },
     {
       path:"/getstarted",
