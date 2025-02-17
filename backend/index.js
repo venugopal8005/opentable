@@ -24,14 +24,7 @@ const user3 = new User({
   name: 'Dick',
   gender:'dick'
 });
-// User.updateOne(
-//   {name:"Dick"},
-//   {$set:{name:"not dick"}}
-// ).then(result => console.log(result))
-// .catch(error => console.log(error));
-// User.insertMany([user2,user3])
-//     .then(() => console.log("Data inserted successfully!"))
-//     .catch(err => console.error("Error inserting data:", err));
+
 User.find({})
     .then(anythings =>{
       console.log(anythings.forEach(data=>console.log(data.name)));
