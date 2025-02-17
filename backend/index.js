@@ -11,6 +11,7 @@ const userschema = new mongoose.Schema({
   name: String,
   gender: String,
 });
+
 const User = mongoose.model('User', userschema);
 const user = new User({
   name: 'John',
