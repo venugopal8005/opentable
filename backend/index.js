@@ -1,46 +1,18 @@
-const express = require('express');
+require("dotenv").config();
+const express = require("express");
+const connectDB = require("./config/database");
+const authRoutes = require("./routes/authrouts.js");
+
 const app = express();
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true }).then(() => { 
- console.log('Connected to database!');}).catch(() => {  
-  console.log('Connection failed!');
-});
 
-const userschema = new mongoose.Schema({
-  name: String,
-  gender: String,
-});
+// Middleware
+app.use(express.json());
 
-const User = mongoose.model('User', userschema);
-const user = new User({
-  name: 'John',
-  gender:'male'
-});
-const user2 = new User({
-  name: 'Jane',
-  gender:'female'
-});
-const user3 = new User({
-  name: 'Dick',
-  gender:'dick'
-});
+// Database Connection
+connectDB();
 
-User.find({})
-    .then(anythings =>{
-      console.log(anythings.forEach(data=>console.log(data.name)));
-   
-    }
-                  )
-    .catch(error => console.error("Error fetching names:", error)); 
+// Routes
+app.use("/api/auth", authRoutes);
 
-
-app.use(bodyParser.json());
-
-app.listen(3000, () => {
- 
-  console.log('Server is running on port 3000');
-});
-app.get('/', (req, res) => {
-  res.send('Hello World');
-});
+const PORT = 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
