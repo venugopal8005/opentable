@@ -1,5 +1,5 @@
 const User = require("../modals/User");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 
 const registerUser = async (req, res) => {
   try {
@@ -9,8 +9,8 @@ const registerUser = async (req, res) => {
     if (userExists) {
       return res.status(400).json({ message: "User already exists" });
     }
-
-    const newUser = new User({ username, email, password });
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new User({ username, email, password:hashedPassword });
     await newUser.save();
     res.status(201).json({ message: "User registered successfully!" });
   } catch (err) {
@@ -25,7 +25,7 @@ const loginUser = async (req, res) => {
 
     if (!user) return res.status(400).json({ message: "User not found" });
        
-    const isMatch = await (password === user.password);
+    const isMatch = await bcrypt.compare(password, user.password);
       console.log(isMatch);
     if (!isMatch) return res.status(400).json({ message: "Invalid credentials" });
 
