@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Aboutus from './components/Aboutus'
 import Login from './components/Login'
 import Get_started from './components/Get_started'
+import Getstartedpage from './components/profilesetup/Getstartedpage'
 
 // import {BrowserRouter,Routes,Route} from "react-router-dom"
 import { createBrowserRouter ,RouterProvider,Route} from 'react-router-dom'
@@ -25,6 +26,10 @@ function App() {
     {
       path:"/getstarted",
       element : <Get_started/>
+    },
+    {
+      path:"/profilesetup",
+      element : <Getstartedpage/>
     }
   ])
 

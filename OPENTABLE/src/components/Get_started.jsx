@@ -1,8 +1,11 @@
 import React from "react"
 import '../CSS/signup.css'
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Get_started = (props) => {
+  const navigate = useNavigate();
 const [signupformdata,setsignupformdata] = useState({username:"",email:"",password:""});
 const handlechange = (e) => {
   const {name,value} = e.target;
@@ -10,12 +13,16 @@ const handlechange = (e) => {
 }
 const handlesubmit = async (e) => {
   e.preventDefault();
+  
   try{
     const res = await axios.post("http://localhost:5000/signup",signupformdata);
+    console.log(signupformdata);
+    // console.log("venugopal  ");
     alert(res.data.message);
+    navigate("/login");
   }
   catch(err){
-    console.log(err.res?.data.message);
+    alert(err.response.data.message);
   }
 };
 
@@ -30,7 +37,7 @@ const handlesubmit = async (e) => {
       
       <div className="signup">
         <div className="heading">SignUp</div>
-        <form className="signupform" action="post"  onSubmit={handlesubmit}> 
+        <form className="signupform"   onSubmit={handlesubmit}> 
               <input className="inp username" name ="email" type="text" placeholder="Email"  onChange={handlechange} required/>
               {/* <input className="inp username" name = "name"type="text" placeholder="name" /> */}
               <input className="inp username" name= "username" type="text" placeholder="Username" onChange={handlechange}required />
