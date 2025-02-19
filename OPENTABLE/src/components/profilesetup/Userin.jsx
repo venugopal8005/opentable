@@ -9,7 +9,7 @@ const Userin = ({usernamedisplay}) => {
     const navigate = useNavigate;
     const logouthandle = ()=>{
         navigate("/");
-        alert("fuck u");
+        alert("this is logouthandle");
     }
 
   return (
