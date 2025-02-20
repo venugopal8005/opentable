@@ -6,10 +6,13 @@ import { FaRegUserCircle } from "react-icons/fa";
 
 
 const Userin = ({usernamedisplay}) => {
-    const navigate = useNavigate;
+  const navi = useNavigate();
     const logouthandle = ()=>{
-        navigate("/");
-        alert("this is logouthandle");
+      
+        // alert("this is logouthandle");
+        localStorage.removeItem("user");
+
+         navi("/");
     }
 
   return (

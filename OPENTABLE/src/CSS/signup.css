@@ -97,3 +97,15 @@
     color: white;
     transform: scale(1.05);
 }
+.errorwarning{
+    display: flex;
+    justify-content: center;
+    bottom: 85px;
+    /* font-size: 10px; */
+    position: absolute;
+    color: rgba(250, 44, 44, 0.858);
+    font-size: 15px;
+    margin: 0;
+    height: fit-content;
+    width: 80%;
+}

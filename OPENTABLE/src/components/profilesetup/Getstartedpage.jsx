@@ -2,37 +2,22 @@ import React from "react"
 import "../CSS/getstartedpage.css"
 import {Player} from "@lottiefiles/react-lottie-player"
 import getstartedanimation from "../../assets/getstartedanimation.json"
-import { CgProfile } from "react-icons/cg";
-import { useState } from "react";
-import Userin from "./Userin";  
+import Allpagenav from "./Allpagenav"
+import { useNavigate } from "react-router-dom";
 const Getstartedpage = (props) => {
-    const [clicked , setclicked] = useState(false);
-    const [namedata,setnamedata] = useState("");
-    const profile_action = ()=>{
-       
-            const username_from_storage = localStorage.getItem("user");
-            const parseddata = JSON.parse(username_from_storage);
-            setnamedata(parseddata.username);
-                 
-        setclicked(!clicked);
-        
-    }
+    const navigate = useNavigate();
+const getstartedhandle = ()=>{
+  
+  navigate("/profilesetup/what_brings_you_here");
+}
   return (
+    
     <div className="getstartedpage_maindiv">
-        <div className="navbartype">
-        <div className="logo"><a href="/">OpenTable</a></div>
-        <div className="profileicon" onClick={profile_action}>
-        <CgProfile />
-        
-        </div>
-        {clicked && <Userin usernamedisplay = {namedata}/>}
-        </div>
- 
-     
+              <Allpagenav/>
      <div className="infodiv">
         <div className="quote 1">Finding the right <span className="word">TEAM</span> starts here!<br></br>
             <div className="quote_2">Let’s personalize your experience.</div>
-            <div className="getstarted_button">Let's go</div>
+            <div className="getstarted_button" onClick={getstartedhandle}>Let's go</div>
         
         </div>
         <div className="lotanimation"> 

@@ -1,10 +1,12 @@
 import React from "react"
 import '../CSS/signup.css'
+
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Get_started = (props) => {
+  const [errwarning , seterrwarning] = useState("");
   const navigate = useNavigate();
 const [signupformdata,setsignupformdata] = useState({username:"",email:"",password:""});
 const handlechange = (e) => {
@@ -18,11 +20,11 @@ const handlesubmit = async (e) => {
     const res = await axios.post("http://localhost:5000/signup",signupformdata);
     console.log(signupformdata);
     // console.log("venugopal  ");
-    alert(res.data.message);
+   seterrwarning(res.data.message);
     navigate("/login");
   }
   catch(err){
-    alert(err.response.data.message);
+    seterrwarning(err.response.data.message);
   }
 };
 
@@ -45,6 +47,7 @@ const handlesubmit = async (e) => {
               <button type="submit" className="getstartedbutton">Continue</button>
               <p>Already have an account? <a href="/login">Login</a></p>
             </form>
+            <div className="errorwarning">{errwarning}</div>
         
     </div>
     </div></>

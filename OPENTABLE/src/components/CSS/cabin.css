@@ -1,0 +1,17 @@
+.cabindiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   align-items: center;
+    height: 100svh;
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+    margin : 0;
+}
+.interviewdiv{
+    position: absolute;
+    
+    height: 70svh;
+    width: 90%;
+    background-color: rgb(174, 170, 170);
+}

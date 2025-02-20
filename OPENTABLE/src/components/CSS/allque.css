@@ -1,0 +1,11 @@
+.getintomaindiv{
+   height: 70svh;
+   top: 15%;left: 5%;
+   width: 90%;
+   position: absolute;
+   background-color: #fdfdfd;
+   /* margin-top: 22%; */
+   /* margin-left: 47%; */
+   cursor: pointer;
+   z-index: 10;
+}

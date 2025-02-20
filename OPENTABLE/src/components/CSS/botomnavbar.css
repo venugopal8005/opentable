@@ -1,0 +1,53 @@
+.botomnavbar{
+
+    display: flex;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    border-top: 0.5px solid rgba(128, 128, 128, 0.514);
+    /* background-color: red; */
+}
+.backbutton{
+    font-family: "Poppins", sans-serif;    position: relative;
+    left: 50px;
+    height: 36px;
+    width: 85px;
+    border-radius: 8px;
+    border: 0.5px solid gray;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+    cursor: pointer;
+    scale: 1.1;
+}
+.backbutton:hover{
+    background-color: rgb(213, 209, 209);
+}
+
+.nextbutton{
+    right: 50px;
+    font-family: "Poppins", sans-serif;    position: absolute;
+    height: 36px;
+    width: 85px;
+    border-radius: 8px;
+    border: 0px solid gray;
+    background-color: rgb(88, 101, 242);    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+    cursor: pointer;
+    scale: 1.1;
+}
+.nextbutton:hover{
+    background-color: rgb(52, 68, 239);
+
+}
+.skip{
+    font-family: "Poppins", sans-serif;    position: absolute;
+    right: 170px;
+    color:     rgb(52, 68, 239);;
+    cursor: pointer;
+}

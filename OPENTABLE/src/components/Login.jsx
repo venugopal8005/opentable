@@ -20,10 +20,10 @@ const Login = (props) => {
      
     
       navigate("/profilesetup");
-      seterrorwarning("");
+      // seterrorwarning("");
       localStorage.setItem("user", JSON.stringify(logindata)); 
 
-      alert(res.data.message + " Welcome to OpenTable" + logindata.username);
+      seterrorwarning(res.data.message + " Welcome to OpenTable" + logindata.username)
       
     }
     catch(err){
