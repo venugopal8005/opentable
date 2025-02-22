@@ -4,7 +4,7 @@ import "../CSS/allque.css"
 const Ideapresent = (props) => {
   return (
     <div className="getintomaindiv">
-      ideapresent
+     3
     </div>
   )
 };

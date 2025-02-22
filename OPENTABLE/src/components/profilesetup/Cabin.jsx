@@ -3,43 +3,45 @@ import "../CSS/cabin.css"
 import "../CSS/botomnavbar.css"
 import Moto from "./Moto";
 import{useNavigate} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Cabin = (props) => {
+  const location = useLocation();
+  
 
-    const [currentroute,setcurrenroute] = useState(0);
+    
     const navigate = useNavigate();
     const routearray = ["/profilesetup/what_brings_you_here","/profilesetup/got_one","/profilesetup/what_do_u_got","/profilesetup/Skills"]
-    console.log(currentroute);
+    // console.log(currentroute);
+    const routeindex = routearray.indexOf(location.pathname);
+    const [currentroute,setcurrenroute] = useState(routeindex+1);
+    console.log(routeindex);
 
     const handleback = ()=>{
-        if (currentroute == 0) {
-            navigate("/profilesetup");
-
-        }
-        else{
-            setcurrenroute(currentroute-1);
-        navigate(routearray[currentroute]);
-        }
+        navigate(-1);
         // console.log(currentroute);
+
     }
     const handlefront = ()=>{
-        if (currentroute == 3) {
+        if (currentroute == 4) {
             navigate("/");
+
         }
         else{
             setcurrenroute(currentroute+1);
             
-                    console.log(currentroute);
+                    // console.log(currentroute);
 
             navigate(routearray[currentroute]);
         }
         // console.log(currentroute);
+// console.log(location.pathname);
 
     }
     
   return (
     <div className="cabindiv">
-       <div className="interviewdiv">
+       <div className="interviewdiv"  >
         {/* <Moto/> */}
        </div>
       <div className="botomnavbar">

@@ -4,7 +4,7 @@ import "../CSS/allque.css"
 const Skills = (props) => {
   return (
     <div className="getintomaindiv">
-      SKills
+  4
     </div>
   )
 };

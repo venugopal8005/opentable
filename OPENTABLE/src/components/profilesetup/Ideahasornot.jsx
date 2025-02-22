@@ -4,7 +4,7 @@ import "../CSS/allque.css"
 const Ideahasornot = (props) => {
   return (
     <div className="getintomaindiv">
-      ideahas
+    2
     </div>
   )
 };
