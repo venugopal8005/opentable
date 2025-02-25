@@ -11,7 +11,7 @@ const Moto = (props) => {
       <div className="motoquewhole">
         <div className="motoque">
           <div className="wtsthemoto">
-            What Brings You Here ?
+            Tell Us About Yourself.
           </div>
 
           <div>

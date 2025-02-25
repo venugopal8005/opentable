@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Aboutus from './components/Aboutus'
 import Login from './components/Login'
 import Get_started from './components/Get_started'
+import Survey from './components/profilesetup/Survey'
 import Cabin from './components/profilesetup/Cabin'
 import Getstartedpage from './components/profilesetup/Getstartedpage'
 import Allpagenav from './components/profilesetup/Allpagenav'
@@ -36,20 +37,24 @@ function App() {
       element : <Getstartedpage/>
     },
     {
-      path:"/profilesetup/what_brings_you_here",
+      path:"/profilesetup/let_us_know_about_urself",
       element : <><Allpagenav/><Moto/><Cabin/></>
     },
     {
-      path:"/profilesetup/got_one",
+      path:"/profilesetup/got_anything",
       element:<><Allpagenav/><Ideahasornot/><Cabin/></>
     },
     {
-      path:"/profilesetup/what_do_u_got",
+      path:"/profilesetup/present_ur_idea",
       element:<><Allpagenav/><Ideapresent/><Cabin/></>
     },
     {
       path:"/profilesetup/skills",
       element:<><Allpagenav/><Skills/><Cabin/></>
+    },
+    {
+      path:"/idk",
+      element:<Survey/>
     }
   ])
 

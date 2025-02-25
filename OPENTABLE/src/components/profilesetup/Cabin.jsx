@@ -11,7 +11,7 @@ const Cabin = (props) => {
 
     
     const navigate = useNavigate();
-    const routearray = ["/profilesetup/what_brings_you_here","/profilesetup/got_one","/profilesetup/what_do_u_got","/profilesetup/Skills"]
+    const routearray = ["/profilesetup/got_anything","/profilesetup/present_ur_idea","/profilesetup/skills","/profilesetup/let_us_know_about_urself"]
     // console.log(currentroute);
     const routeindex = routearray.indexOf(location.pathname);
     const [currentroute,setcurrenroute] = useState(routeindex+1);
@@ -20,6 +20,7 @@ const Cabin = (props) => {
     const handleback = ()=>{
         navigate(-1);
         // console.log(currentroute);
+         setcurrenroute(currentroute-1);
 
     }
     const handlefront = ()=>{

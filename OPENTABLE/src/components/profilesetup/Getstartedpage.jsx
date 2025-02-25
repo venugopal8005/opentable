@@ -8,7 +8,7 @@ const Getstartedpage = (props) => {
     const navigate = useNavigate();
 const getstartedhandle = ()=>{
   
-  navigate("/profilesetup/what_brings_you_here");
+  navigate("/profilesetup/got_anything");
 }
   return (
     
