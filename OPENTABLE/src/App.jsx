@@ -14,6 +14,8 @@ import Ideapresent from './components/profilesetup/Ideapresent'
 import Skills from './components/profilesetup/Skills'
 import { createBrowserRouter ,RouterProvider,Route} from 'react-router-dom'
 import Moto from './components/profilesetup/Moto'
+import Radiowraper from './components/profilesetup/Radiowraper'
+import Whatkindaidea from './components/profilesetup/Whatkindaidea'
 function App() {
   const router = createBrowserRouter([
     {
@@ -42,7 +44,8 @@ function App() {
     },
     {
       path:"/profilesetup/got_anything",
-      element:<><Allpagenav/><Ideahasornot/><Cabin/></>
+      element:<><Radiowraper/>
+        </>
     },
     {
       path:"/profilesetup/present_ur_idea",
@@ -55,6 +58,10 @@ function App() {
     {
       path:"/idk",
       element:<Survey/>
+    },
+    {
+      path:"/profilesetup/what_kinda_idea",
+      element:<><Allpagenav/><Whatkindaidea/><Cabin/></>
     }
   ])
 

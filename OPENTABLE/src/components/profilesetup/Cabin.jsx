@@ -5,16 +5,15 @@ import Moto from "./Moto";
 import{useNavigate} from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-const Cabin = (props) => {
-  const location = useLocation();
-  
 
+const Cabin = ({radiofinally}) => {
+  const location = useLocation();
     
     const navigate = useNavigate();
-    const routearray = ["/profilesetup/got_anything","/profilesetup/present_ur_idea","/profilesetup/skills","/profilesetup/let_us_know_about_urself"]
+    const routearray = ["/profilesetup/got_anything",(radiofinally == "radio2")?"/profilesetup/what_kinda_idea":"/profilesetup/present_ur_idea","/profilesetup/skills","/profilesetup/let_us_know_about_urself"]
     // console.log(currentroute);
     const routeindex = routearray.indexOf(location.pathname);
-    const [currentroute,setcurrenroute] = useState(routeindex+1);
+    const [currentroute,setcurrenroute] = useState(Math.abs(routeindex)+1);
     console.log(routeindex);
 
     const handleback = ()=>{
@@ -37,6 +36,11 @@ const Cabin = (props) => {
         }
         // console.log(currentroute);
 // console.log(location.pathname);
+if (routeindex == 0) {
+  localStorage.setItem('radioresponce', radiofinally);
+}
+
+
 
     }
     
@@ -48,7 +52,7 @@ const Cabin = (props) => {
       <div className="botomnavbar">
         <button className="backbutton" onClick={handleback}>Back</button>
         <div className="skip"><u>Skip for now</u></div>
-        <button className="nextbutton" onClick={handlefront}>Next &#8594;</button>
+        <button className="nextbutton" onClick={handlefront} type="submit">Next &#8594;</button>
       </div>
     </div>
   )

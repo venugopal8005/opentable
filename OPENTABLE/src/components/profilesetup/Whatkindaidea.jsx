@@ -1,19 +1,19 @@
 import React from "react"
 import "../CSS/allque.css"
 import "../CSS/moto.css"
-import { useState } from "react";
-import idea from "../../assets/idea.json"
-import { Player } from "@lottiefiles/react-lottie-player";
+import { useState } from "react"
+import wtkindaanimation from "../../assets/wtkindaanimation.json"
+import { Player } from "@lottiefiles/react-lottie-player"
 
-const Ideapresent = (props) => {
-    const [description, setDescription] = useState("");
+const Whatkindaidea = (props) => {
+  const [description, setDescription] = useState("");
   
   return (
     <div className="getintomaindiv">
     <div className="motoquewhole">
       <div className="motoque">
-        <div className="wtsthemoto">
-          Tell Us About Your Idea!
+        <div className="wtkindaproject">
+        What kind of project would you like to be part of?
         </div>
 
         <div>
@@ -28,11 +28,11 @@ const Ideapresent = (props) => {
         </div>
 
       </div>
-      <div className="ideaanimation">
+      <div className="wtkindaanimation">
       <Player
             autoplay
             loop
-            src={idea}
+            src={wtkindaanimation}
             // className="tellabout-lottie"
             />
       </div>
@@ -41,4 +41,4 @@ const Ideapresent = (props) => {
   )
 };
 
-export default Ideapresent;
+export default Whatkindaidea;
