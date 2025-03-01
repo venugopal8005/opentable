@@ -6,7 +6,10 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    /* background-color:rgb(200, 172, 214); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    opacity: 1;
 }
 .qoute {
     display: flex;
@@ -33,6 +36,7 @@
     top: 390px;
     /* border: 1px solid; */
     height: fit-content;
+    color: white;
     width: fit-content;
     letter-spacing: 4px;
     font-family: "Poppins", sans-serif;
@@ -43,16 +47,14 @@
 .setgo {
     --b: 3px;   /* border thickness */
     --s: .15em; /* size of the corner */
-    --c: rgb(0, 96, 58);
-    
+    --c: rgb(52, 68, 239);
     padding: calc(.05em + var(--s)) calc(.3em + var(--s));
-    color: var(--c);
     --_p: var(--s);
     background:
-      conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--c) 0)
+      conic-gradient(from 90deg at var(--b) var(--b),#fff8f800 90deg,var(--c) 0)
       var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
     transition: .3s linear, color 0s, background-color 0s;
-    outline: var(--b) solid #0000;
+    outline: var(--b) solid #ffffff00;
     outline-offset: .2em;
   }
   .setgo:hover,
@@ -87,5 +89,15 @@ color: black;
     color: #FCCD2A;
 }
 .life{
-    color: rgb(0, 96, 58);
+    color:rgb(52, 68, 239);
+}
+.seg1dup{
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+
+  height: 100%;
+  width: 100%;
+  background-color: rgba(52, 68, 239, 0.426);
 }

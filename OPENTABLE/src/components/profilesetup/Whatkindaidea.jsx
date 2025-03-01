@@ -13,7 +13,7 @@ const Whatkindaidea = (props) => {
     <div className="motoquewhole">
       <div className="motoque">
         <div className="wtkindaproject">
-        What kind of project would you like to be part of?
+        What kind of project would you like to be part of ?
         </div>
 
         <div>
