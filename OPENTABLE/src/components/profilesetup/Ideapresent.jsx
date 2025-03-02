@@ -1,12 +1,15 @@
-import React from "react"
+import React, { useEffect } from "react"
 import "../CSS/allque.css"
 import "../CSS/moto.css"
 import { useState } from "react";
 import idea from "../../assets/idea.json"
 import { Player } from "@lottiefiles/react-lottie-player";
 
-const Ideapresent = (props) => {
+const Ideapresent = ({setidea}) => {
     const [description, setDescription] = useState("");
+    useEffect(() => {
+      setidea(description);
+    }, [description]);
   
   return (
     <div className="getintomaindiv">

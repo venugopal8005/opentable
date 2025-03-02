@@ -1,108 +1,91 @@
 import React, { useState } from "react";
 
-const suggestedSkills = [
-  "Web Application",
-  "Artificial Intelligence",
-  "Integral Calculus",
-  "Mobile App",
-  "Blockchain",
-  "Block Flow Diagram",
-  "Blockchain Development",
-  "Blockchain Security",
-];
+const skills = ["JavaScript", "Python", "React", "Node.js", "Angular", "Vue.js"];
 
-const SkillsSelector = () => {
-  const [selectedSkills, setSelectedSkills] = useState([]);
+export default function CustomAutoComplete() {
   const [inputValue, setInputValue] = useState("");
   const [filteredSkills, setFilteredSkills] = useState([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [highlightedIndex, setHighlightedIndex] = useState(-1);
 
-  const handleInputChange = (event) => {
-    const value = event.target.value;
+  const handleChange = (e) => {
+    const value = e.target.value;
     setInputValue(value);
 
     if (value) {
-      const filtered = suggestedSkills.filter((skill) =>
+      const filtered = skills.filter((skill) =>
         skill.toLowerCase().includes(value.toLowerCase())
       );
       setFilteredSkills(filtered);
+      setShowDropdown(true);
     } else {
       setFilteredSkills([]);
+      setShowDropdown(false);
     }
   };
 
-  // Handle skill selection
-  const handleSelectSkill = (skill) => {
-    if (!selectedSkills.includes(skill)) {
-      setSelectedSkills([...selectedSkills, skill]);
-    }
-    setInputValue("");
-    setFilteredSkills([]);
+  const handleSelect = (skill) => {
+    setInputValue(skill);
+    setShowDropdown(false);
+    setHighlightedIndex(-1);
   };
 
-  // Handle removing a skill
-  const handleRemoveSkill = (skill) => {
-    setSelectedSkills(selectedSkills.filter((s) => s !== skill));
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowDown") {
+      setHighlightedIndex((prev) =>
+        prev < filteredSkills.length - 1 ? prev + 1 : prev
+      );
+    } else if (e.key === "ArrowUp") {
+      setHighlightedIndex((prev) => (prev > 0 ? prev - 1 : prev));
+    } else if (e.key === "Enter" && highlightedIndex >= 0) {
+      handleSelect(filteredSkills[highlightedIndex]);
+    }
   };
 
   return (
-    <div style={{ width: "500px", margin: "20px auto", fontFamily: "Arial" }}>
-      <h2>What work are you here to do?</h2>
-      <p>Select skills to showcase your expertise</p>
-
-      {/* Selected Skills */}
-      <div style={{ border: "1px solid #ccc", padding: "10px", borderRadius: "8px" }}>
-        {selectedSkills.map((skill, index) => (
-          <span
-            key={index}
-            style={{
-              display: "inline-block",
-              padding: "5px 10px",
-              margin: "5px",
-              border: "1px solid black",
-              borderRadius: "20px",
-              cursor: "pointer",
-            }}
-            onClick={() => handleRemoveSkill(skill)}
-          >
-            {skill} ✖
-          </span>
-        ))}
-
-        {/* Input field */}
-        <input
-          type="text"
-          value={inputValue}
-          onChange={handleInputChange}
-          placeholder="Enter skills here"
-          style={{
-            border: "none",
-            outline: "none",
-            marginLeft: "10px",
-          }}
-        />
-      </div>
-
-      {/* Dropdown Suggestions */}
-      {filteredSkills.length > 0 && (
+    <div style={{ position: "relative", width: "250px" }}>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+        placeholder="Type to search..."
+        onFocus={() => setShowDropdown(true)}
+        onBlur={() => setTimeout(() => setShowDropdown(false), 200)}
+        style={{
+          width: "100%",
+          padding: "8px",
+          border: "1px solid #ccc",
+          borderRadius: "4px",
+        }}
+      />
+      {showDropdown && filteredSkills.length > 0 && (
         <ul
           style={{
-            listStyleType: "none",
-            padding: "10px",
+            position: "absolute",
+            top: "40px",
+            left: "0",
+            right: "0",
+            background: "white",
             border: "1px solid #ccc",
-            borderRadius: "5px",
-            marginTop: "5px",
+            borderRadius: "4px",
+            listStyle: "none",
+            padding: "0",
+            margin: "0",
             maxHeight: "150px",
             overflowY: "auto",
+            zIndex: 10,
           }}
         >
           {filteredSkills.map((skill, index) => (
             <li
               key={index}
-              onClick={() => handleSelectSkill(skill)}
+              onClick={() => handleSelect(skill)}
               style={{
-                padding: "5px",
+                padding: "8px",
                 cursor: "pointer",
                 borderBottom: "1px solid #eee",
+                backgroundColor: highlightedIndex === index ? "#ddd" : "white",
               }}
             >
               {skill}
@@ -110,29 +93,6 @@ const SkillsSelector = () => {
           ))}
         </ul>
       )}
-
-      {/* Suggested Skills */}
-      <h3>Suggested Skills</h3>
-      <div>
-        {suggestedSkills.map((skill, index) => (
-          <button
-            key={index}
-            onClick={() => handleSelectSkill(skill)}
-            style={{
-              padding: "8px 15px",
-              margin: "5px",
-              border: "1px solid #ccc",
-              borderRadius: "20px",
-              cursor: "pointer",
-              background: "white",
-            }}
-          >
-            + {skill}
-          </button>
-        ))}
-      </div>
     </div>
   );
-};
-
-export default SkillsSelector;
+}
