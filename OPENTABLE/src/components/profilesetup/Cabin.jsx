@@ -5,7 +5,7 @@ import Moto from "./Moto";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-const Cabin = ({ radiofinally , idea }) => {
+const Cabin = ({ radiofinally, idea, finalskills }) => {
   const location = useLocation();
 
   const navigate = useNavigate();
@@ -38,6 +38,9 @@ const Cabin = ({ radiofinally , idea }) => {
     }
     if (location.pathname == "/profilesetup/present_ur_idea") {
       localStorage.setItem("idearesponce", idea);
+    }
+    if (location.pathname == "/profilesetup/skills") {
+      localStorage.setItem("skillsresponce", finalskills);
     }
   };
 

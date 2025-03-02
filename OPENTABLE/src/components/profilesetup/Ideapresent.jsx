@@ -6,11 +6,15 @@ import idea from "../../assets/idea.json"
 import { Player } from "@lottiefiles/react-lottie-player";
 
 const Ideapresent = ({setidea}) => {
-    const [description, setDescription] = useState("");
-    useEffect(() => {
-      setidea(description);
-    }, [description]);
-  
+  const pastidea = localStorage.getItem("idearesponce");
+
+    const [description, setDescription] = useState(pastidea|| "");
+   
+  const handleideachange = (e) => {
+    setDescription(e.target.value);
+    setidea(e.target.value);
+
+  }
   return (
     <div className="getintomaindiv">
     <div className="motoquewhole">
@@ -22,7 +26,7 @@ const Ideapresent = ({setidea}) => {
         <div>
           <textarea
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={handleideachange}
             placeholder="Write your description here..."
             rows={5}
             className="discriptionbox"
@@ -36,7 +40,7 @@ const Ideapresent = ({setidea}) => {
             autoplay
             loop
             src={idea}
-            // className="tellabout-lottie"
+
             />
       </div>
     </div>

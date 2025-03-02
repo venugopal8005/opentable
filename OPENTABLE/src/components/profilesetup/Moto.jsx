@@ -24,7 +24,6 @@ const Moto = (props) => {
             >
 {description}</textarea>
           </div>
-
         </div>
         <div className="motoanimation">
             <Player

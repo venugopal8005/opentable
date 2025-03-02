@@ -16,6 +16,7 @@ import { createBrowserRouter ,RouterProvider,Route} from 'react-router-dom'
 import Moto from './components/profilesetup/Moto'
 import Radiowraper from './components/profilesetup/Radiowraper'
 import Whatkindaidea from './components/profilesetup/Whatkindaidea'
+import Ideawraper from './components/profilesetup/Ideawraper'
 function App() {
   const router = createBrowserRouter([
     {
@@ -49,7 +50,7 @@ function App() {
     },
     {
       path:"/profilesetup/present_ur_idea",
-      element:<><Allpagenav/><Ideapresent/><Cabin/></>
+      element:<Ideawraper/>
     },
     {
       path:"/profilesetup/skills",

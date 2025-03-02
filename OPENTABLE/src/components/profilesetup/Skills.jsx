@@ -8,7 +8,7 @@ import { IoAdd } from "react-icons/io5";
 import skillanimation from "../../assets/skills.json";
 import { Player } from "@lottiefiles/react-lottie-player";
 
-const Skills = (props) => {
+const Skills = ({ skillsetter }) => {
   const [suggestedskills, setsuggestedSkills] = useState([
     "React.js",
     "Node.js",
@@ -182,132 +182,121 @@ const Skills = (props) => {
     "Twilio",
     "Google Analytics",
   ];
-  const [searchedskills, setsearchedskills] = useState([]);
-  const [selectedskills, setselectedskills] = useState([]);
-  const handelsuggestedskills = (skill) => {
-    setsuggestedSkills(suggestedskills.filter((s) => s !== skill));
-    setselectedskills([...selectedskills, skill]);
-  };
-  const removeiskill = (item) => {
-    setselectedskills(selectedskills.filter((s) => s !== item));
-    setsuggestedSkills([...suggestedskills, item]);
-  };
-  const handleSelect = (skill) => {
-    if (!selectedskills.includes(skill)) {
-      setselectedskills([...selectedskills, skill]);
-      setsuggestedSkills(suggestedskills.filter((s) => s !== skill));
-    }
-    setsearchingskill("");
-    setrecomendbarvisible(false);
-    setrecomendposition(0);
-  };
-  const [recomendbarvisible, setrecomendbarvisible] = useState(false);
-  const [recomendposition, setrecomendposition] = useState(0);
-  const [searchingskill, setsearchingskill] = useState("");
-  useEffect(() => {
-    if (searchingskill.length > 0) {
-      setsearchedskills(
-        recomendskills.filter((skill) =>
+    const [searchedskills, setsearchedskills] = useState([]);
+    const [selectedskills, setselectedskills] = useState([]);
+    const [searchingskill, setsearchingskill] = useState("");
+    const [recomendbarvisible, setrecomendbarvisible] = useState(false);
+    const [recomendposition, setrecomendposition] = useState(0);
+  
+    // Update parent component when selected skills change
+    useEffect(() => {
+      skillsetter(selectedskills);
+    }, [selectedskills, skillsetter]);
+  
+    // Handle search filtering and visibility of recommendations
+    useEffect(() => {
+      if (searchingskill.trim().length > 0) {
+        const filteredSkills = recomendskills.filter((skill) =>
           skill.toLowerCase().includes(searchingskill.toLowerCase())
-        )
-      );
-      if (searchedskills.length > 0) {
-        setrecomendbarvisible(true);
+        );
+        setsearchedskills(filteredSkills);
+        setrecomendbarvisible(filteredSkills.length > 0);
       } else {
+        setsearchedskills([]);
         setrecomendbarvisible(false);
       }
-    } else {
+    }, [searchingskill]);
+  
+    const handleSuggestedSkillClick = (skill) => {
+      setselectedskills((prev) => [...prev, skill]);
+      setsuggestedSkills((prev) => prev.filter((s) => s !== skill));
+    };
+  
+    const removeSkill = (skill) => {
+      setselectedskills((prev) => prev.filter((s) => s !== skill));
+      setsuggestedSkills((prev) => [...prev, skill]);
+    };
+  
+    const handleSelect = (skill) => {
+      if (!selectedskills.includes(skill)) {
+        setselectedskills([...selectedskills, skill]);
+        setsuggestedSkills((prev) => prev.filter((s) => s !== skill));
+      }
+      setsearchingskill("");
       setrecomendbarvisible(false);
-      setsearchedskills([]);
-    }
-    console.log(searchedskills);
-  }, [searchingskill]);
-  const handelkeydown = (e) => {
-    if (e.key === "ArrowDown" && recomendbarvisible) {
-      setrecomendposition((prev) =>
-        prev < searchedskills.length - 1 ? prev + 1 : prev
-      );
-    } else if (e.key === "ArrowUp") {
-      setrecomendposition((prev) => (prev > 0 ? prev - 1 : prev));
-    } else if (
-      e.key === "Enter" &&
-      recomendposition >= 0 &&
-      recomendbarvisible
-    ) {
-      handleSelect(searchedskills[recomendposition]);
-    }
-  };
-  return (
-    <div className="getintomaindiv">
-      <div className="motoquewhole">
-        <div className="motoque">
-          <div className="skillsque">
-            What skills do you bring to the table ?
-          </div>
-
-          <div className="skillarea">
-            {selectedskills.length > 0
-              ? selectedskills.map((item) => (
-                  <span
-                    className="suggestedskill"
-                    onClick={() => removeiskill(item)}
-                  >
-                    {item} <RxCrossCircled />
-                  </span>
-                ))
-              : null}
-            <div style={{ display: "inline-block" }}>
-              <input
-                type="text"
-                className="inputtext"
-                placeholder="Enter skills here"
-                value={searchingskill}
-                onKeyDown={handelkeydown}
-                onChange={(e) => setsearchingskill(e.target.value)}
-              />
-              {searchedskills.length > 0 && (
-                <div className="racomendationbar">
-                  {searchedskills.length > 0
-                    ? searchedskills.map((skill, index) => (
-                        <div
-                          key={index}
-                          className={
-                            index === recomendposition
-                              ? "recomendedskillhigh"
-                              : "recomendedskill"
-                          }
-                        >
-                          {skill}
-                        </div>
-                      ))
-                    : null}
-                </div>
-              )}
+      setrecomendposition(0);
+    };
+  
+    const handleKeyDown = (e) => {
+      if (recomendbarvisible) {
+        if (e.key === "ArrowDown") {
+          setrecomendposition((prev) => (prev < searchedskills.length - 1 ? prev + 1 : prev));
+        } else if (e.key === "ArrowUp") {
+          setrecomendposition((prev) => (prev > 0 ? prev - 1 : prev));
+        } else if (e.key === "Enter" && recomendposition >= 0) {
+          handleSelect(searchedskills[recomendposition]);
+        }
+      }
+    };
+  
+    return (
+      <div className="getintomaindiv">
+        <div className="motoquewhole">
+          <div className="motoque">
+            <div className="skillsque">What skills do you bring to the table?</div>
+  
+            {/* Selected Skills */}
+            <div className="skillarea">
+              {selectedskills.map((skill) => (
+                <span className="suggestedskill" onClick={() => removeSkill(skill)} key={skill}>
+                  {skill} <RxCrossCircled />
+                </span>
+              ))}
+              <div style={{ display: "inline-block" }}>
+                {/* Search Input */}
+                <input
+                  type="text"
+                  className="inputtext"
+                  placeholder="Enter skills here"
+                  value={searchingskill}
+                  onKeyDown={handleKeyDown}
+                  onChange={(e) => setsearchingskill(e.target.value)}
+                />
+  
+                {/* Skill Recommendations */}
+                {recomendbarvisible && (
+                  <div className="racomendationbar">
+                    {searchedskills.map((skill, index) => (
+                      <div
+                        key={skill}
+                        className={index === recomendposition ? "recomendedskillhigh" : "recomendedskill"}
+                        onClick={() => handleSelect(skill)}
+                      >
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+  
+            {/* Suggested Skills */}
+            <div className="suggestedskills">
+              {suggestedskills.map((skill) => (
+                <span className="suggestedskill" onClick={() => handleSuggestedSkillClick(skill)} key={skill}>
+                  {skill} <IoAdd />
+                </span>
+              ))}
             </div>
           </div>
-
-          <div className="suggestedskills">
-            {suggestedskills.map((skill) => (
-              <span
-                className="suggestedskill"
-                onClick={() => handelsuggestedskills(skill)}
-              >
-                {skill} <IoAdd />
-              </span>
-            ))}
+  
+          {/* Lottie Animation */}
+          <div className="skillanimation">
+            <Player autoplay loop src={skillanimation} />
           </div>
         </div>
-        <div className="skillanimation">
-          <Player
-            autoplay
-            loop
-            src={skillanimation}
-            // className="tellabout-lottie"
-          />
-        </div>
       </div>
-    </div>
-  );
-};
-
-export default Skills;
+    );
+  };
+  
+  export default Skills;
