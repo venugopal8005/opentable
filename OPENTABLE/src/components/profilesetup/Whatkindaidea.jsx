@@ -5,8 +5,8 @@ import { useState } from "react"
 import wtkindaanimation from "../../assets/wtkindaanimation.json"
 import { Player } from "@lottiefiles/react-lottie-player"
 
-const Whatkindaidea = (props) => {
-  const [description, setDescription] = useState("");
+const Whatkindaidea = ({setwhatkindidea}) => {
+  const [description, setDescription] = useState(localStorage.getItem("whatkindidea") || "");
   
   return (
     <div className="getintomaindiv">
@@ -19,7 +19,10 @@ const Whatkindaidea = (props) => {
         <div>
           <textarea
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(e) => {
+              setDescription(e.target.value);
+              setwhatkindidea(description);
+            }}
             placeholder="Write your description here..."
             rows={5}
             className="discriptionbox"

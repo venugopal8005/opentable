@@ -182,18 +182,19 @@ const Skills = ({ skillsetter }) => {
     "Twilio",
     "Google Analytics",
   ];
+  const tempskills = localStorage.getItem("skillsresponce").split(",");
     const [searchedskills, setsearchedskills] = useState([]);
-    const [selectedskills, setselectedskills] = useState([]);
+    const [selectedskills, setselectedskills] = useState(tempskills || []);
     const [searchingskill, setsearchingskill] = useState("");
     const [recomendbarvisible, setrecomendbarvisible] = useState(false);
     const [recomendposition, setrecomendposition] = useState(0);
   
-    // Update parent component when selected skills change
     useEffect(() => {
       skillsetter(selectedskills);
+
+      // console.log(tempskills);
     }, [selectedskills, skillsetter]);
   
-    // Handle search filtering and visibility of recommendations
     useEffect(() => {
       if (searchingskill.trim().length > 0) {
         const filteredSkills = recomendskills.filter((skill) =>
@@ -245,7 +246,6 @@ const Skills = ({ skillsetter }) => {
           <div className="motoque">
             <div className="skillsque">What skills do you bring to the table?</div>
   
-            {/* Selected Skills */}
             <div className="skillarea">
               {selectedskills.map((skill) => (
                 <span className="suggestedskill" onClick={() => removeSkill(skill)} key={skill}>
@@ -253,7 +253,6 @@ const Skills = ({ skillsetter }) => {
                 </span>
               ))}
               <div style={{ display: "inline-block" }}>
-                {/* Search Input */}
                 <input
                   type="text"
                   className="inputtext"
@@ -263,7 +262,6 @@ const Skills = ({ skillsetter }) => {
                   onChange={(e) => setsearchingskill(e.target.value)}
                 />
   
-                {/* Skill Recommendations */}
                 {recomendbarvisible && (
                   <div className="racomendationbar">
                     {searchedskills.map((skill, index) => (
@@ -280,7 +278,6 @@ const Skills = ({ skillsetter }) => {
               </div>
             </div>
   
-            {/* Suggested Skills */}
             <div className="suggestedskills">
               {suggestedskills.map((skill) => (
                 <span className="suggestedskill" onClick={() => handleSuggestedSkillClick(skill)} key={skill}>
@@ -290,7 +287,6 @@ const Skills = ({ skillsetter }) => {
             </div>
           </div>
   
-          {/* Lottie Animation */}
           <div className="skillanimation">
             <Player autoplay loop src={skillanimation} />
           </div>

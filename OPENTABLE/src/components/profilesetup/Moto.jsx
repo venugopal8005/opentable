@@ -4,8 +4,14 @@ import "../CSS/moto.css"
 import { useState } from "react"
 import { Player } from "@lottiefiles/react-lottie-player"
 import wtbringsuhere from "../../assets/wtbringsuhere.json"
-const Moto = (props) => {
-  const [description, setDescription] = useState("");
+const Moto = ({setmoto}) => {
+  const handlemoto = (e) => {
+ console.log(e.target.value);
+    
+    setDescription(e.target.value);
+    setmoto(description);
+  };
+  const [description, setDescription] = useState( localStorage.getItem("motoresponce") || "");
   return (
     <div className="getintomaindiv">
       <div className="motoquewhole">
@@ -17,7 +23,7 @@ const Moto = (props) => {
           <div>
             <textarea
               value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={handlemoto}
               placeholder="Write your description here..."
               rows={5}
               className="discriptionbox"
@@ -30,7 +36,6 @@ const Moto = (props) => {
             autoplay
             loop
             src={wtbringsuhere}
-            // className="tellabout-lottie"
             />
         </div>
       </div>

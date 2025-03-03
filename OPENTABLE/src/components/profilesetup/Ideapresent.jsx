@@ -8,7 +8,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 const Ideapresent = ({setidea}) => {
   const pastidea = localStorage.getItem("idearesponce");
 
-    const [description, setDescription] = useState(pastidea|| "");
+  const [description, setDescription] = useState(pastidea|| "");
    
   const handleideachange = (e) => {
     setDescription(e.target.value);
