@@ -44,12 +44,6 @@ const Cabin = ({ radiofinally, idea, finalskills,moto , whatkindidea} ) => {
     }
     if (location.pathname == "/profilesetup/let_us_know_about_urself") {
       localStorage.setItem("motoresponce", moto);
-      
-      
-      
-    }
-    if (location.pathname == "/profilesetup/what_kinda_idea") {
-      localStorage.setItem("whatkindidea", whatkindidea);
       async () => {
         try {
           const res = await axios.post("http://localhost:5000/profile", {
@@ -57,13 +51,19 @@ const Cabin = ({ radiofinally, idea, finalskills,moto , whatkindidea} ) => {
             idea: localStorage.getItem("idearesponce"),
             skills: localStorage.getItem("skillsresponce"),
             moto: localStorage.getItem("motoresponce"),
-            whatkindidea: localStorage.getItem("whatkindidea"),
+            whatkindidea: localStorage.getItem("whatkindidea") || "null",
           });
-          console.log(res.data);
+          
         } catch (err) {
           console.log(err);
         }
       }
+      
+      
+    }
+    if (location.pathname == "/profilesetup/what_kinda_idea") {
+      localStorage.setItem("whatkindidea", whatkindidea);
+      
     }
   };
 
