@@ -6,7 +6,7 @@ import wtkindaanimation from "../../assets/wtkindaanimation.json"
 import { Player } from "@lottiefiles/react-lottie-player"
 
 const Whatkindaidea = ({setwhatkindidea}) => {
-  const [description, setDescription] = useState(localStorage.getItem("whatkindidea") || "");
+  const [description, setDescription] = useState(sessionStorage.getItem("whatkindidea") || "");
   
   return (
     <div className="getintomaindiv">

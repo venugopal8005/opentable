@@ -1,0 +1,252 @@
+.wholewrapup {
+  margin: 0px;
+  height: 100svh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(245, 245, 245);
+}
+.wrapupinner {
+  display: block;
+  height: 95%;
+  width: 95%;
+}
+.wrapupheading {
+  height: 10%;
+  width: 100%;
+  /* background-color: red; */
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 300%;
+  font-weight: 600;
+  background-color: transparent;
+  color: rgb(52, 68, 239);
+}
+.wraupstuff {
+  display: flex;
+  height: 90%;
+  width: 100%;
+}
+.sidea {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  height: 100%;
+  width: 45%;
+
+  box-shadow: 0px 0px 10px 1px rgba(128, 128, 128, 0.316);
+  overflow-y: auto;
+  /* background-color: blue; */
+  border-radius: 10px 10px;
+
+  overflow-x: hidden;
+}
+.discriptionbox1 {
+  position: relative;
+  margin-top: 35px;
+  /* margin-left: 10px; */
+  height: 300px;
+  width: 600px;
+  font-family: "Poppins", sans-serif;
+  padding: 15px;
+  font-size: 15px;
+  font-weight: 300;
+  background-color: rgb(245, 245, 245);
+
+  text-decoration: none;
+  border-radius: 10px;
+  border: 2px solid rgb(143, 139, 139);
+  outline: none;
+}
+.discriptionbox1:hover {
+  border: 2px solid black;
+}
+.idealabel {
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  font-family: "Poppins", sans-serif;
+  color: rgb(52, 68, 239);
+  font-weight: 400;
+
+  font-size: 1.2em;
+}
+.lable {
+  top: 1px;
+  position: relative;
+  left: 15px;
+  font-family: "Poppins", sans-serif;
+  color: rgb(52, 68, 239);
+  font-weight: 400;
+
+  font-size: 1.2em;
+}
+.skilllable {
+  top: 1px;
+  position: relative;
+  left: 5px;
+  font-family: "Poppins", sans-serif;
+  color: rgb(52, 68, 239);
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+.sidea::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidea::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgb(73, 85, 218),
+    rgb(70, 84, 233)
+  ); /* Gradient color */
+  /* border-radius: 10px; */
+}
+
+.sidea::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgb(49, 64, 227),
+    rgb(38, 55, 241)
+  ); /* Darker on hover */
+}
+
+.sidea::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+.discriptionboxwrap {
+  position: relative;
+  margin-top: 2px;
+  margin-left: 10px;
+  height: 300px;
+  width: 600px;
+  background-color: rgb(245, 245, 245);
+
+  font-family: "Poppins", sans-serif;
+  padding: 15px;
+  font-size: 15px;
+  font-weight: 300;
+  text-decoration: none;
+  border-radius: 10px;
+  border: 2px solid rgb(143, 139, 139);
+  outline: none;
+}
+.discriptionboxwrap:hover {
+  border: 2px solid black;
+}
+.motowrapup {
+  /* background-color:black; */
+  width: 100%;
+}
+
+/*loader animkaton skeliton*/
+.sideb {
+  height: 100%;
+  width: 55%;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  /* background-color: aqua; */
+}
+.skeleton-container {
+  display: flex;
+  /* position: absolute; */
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  width: 93%;
+  /* background-color: black; */
+  align-items: center;
+  justify-content: center;
+}
+
+
+.skeleton-line {
+  height: 14px;
+  width: 95%;
+  background: linear-gradient(90deg, #d0e3ff 25%, #a3caff 50%, #d0e3ff 75%);
+  background-size: 200% 100%;
+  border-radius: 4px;
+  animation: skeleton-loading 1.8s infinite ease-in-out;
+}
+
+/* Indent first line */
+.indent {
+  width: 80%;
+  margin-left: 15%;
+}
+
+/* Shorten last line */
+.short-line {
+  width: 60%;
+  margin-right: 35%;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+/*formating the roadamap */
+.roadmapgenarated {
+    display: flex;
+    /* position: absolute; */
+    flex-direction: column;
+    overflow: auto;
+    height: 100%;
+    margin-left: 81px;
+    margin-right: 80px;
+    /* background-color: rgba(232, 25, 25, 0.147); */
+    font-family: "Poppins", sans-serif;
+  }
+h2 {
+  color: #007bff;
+  margin-top: 5px;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.sidea1::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  .sidea1::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      180deg,
+      rgb(73, 85, 218),
+      rgb(70, 84, 233)
+    ); /* Gradient color */
+    /* border-radius: 10px; */
+  }
+  
+  .sidea1::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      180deg,
+      rgb(49, 64, 227),
+      rgb(38, 55, 241)
+    ); /* Darker on hover */
+  }
+  
+  .sidea1::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }

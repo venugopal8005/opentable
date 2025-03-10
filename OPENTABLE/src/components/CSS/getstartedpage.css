@@ -26,8 +26,8 @@ display: inline-flex;
     margin-bottom: -40px;
     /* background-color: #d1009d; */
 }
-.quote{
-    font-size: 400%;
+.quote_1{
+    font-size: 300%;
     /* position: relative; */
     font-family: "Poppins", sans-serif;
     font-weight: 800;
@@ -39,7 +39,7 @@ display: inline-flex;
 .quote_2{
     /* left: 120px; */
     /* position: absolute; */
-    font-size: 70%;
+    font-size: 80%;
     font-family: "Poppins", sans-serif;
     font-weight: 800;
     font-style: normal;
@@ -48,7 +48,8 @@ display: inline-flex;
     
 }
 .word{
-    color: rgb(205, 205, 2)
+    color: rgb(205, 205, 1);
+    font-size: 90px;
 }
 .getstarted_button{
     margin-top: 30px;

@@ -6,9 +6,9 @@ import idea from "../../assets/idea.json"
 import { Player } from "@lottiefiles/react-lottie-player";
 
 const Ideapresent = ({setidea}) => {
-  const pastidea = localStorage.getItem("idearesponce");
+  const pastidea = sessionStorage.getItem("idearesponce");
 
-  const [description, setDescription] = useState(pastidea|| "");
+  const [description, setDescription] = useState((pastidea)?pastidea:" ");
    
   const handleideachange = (e) => {
     setDescription(e.target.value);

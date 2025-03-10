@@ -11,7 +11,7 @@ const Moto = ({setmoto}) => {
     setDescription(e.target.value);
     setmoto(description);
   };
-  const [description, setDescription] = useState( localStorage.getItem("motoresponce") || "");
+  const [description, setDescription] = useState( (sessionStorage.getItem("motoresponce"))?sessionStorage.getItem("motoresponce"): "");
   return (
     <div className="getintomaindiv">
       <div className="motoquewhole">

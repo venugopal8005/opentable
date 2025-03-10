@@ -15,9 +15,9 @@ const getstartedhandle = ()=>{
     <div className="getstartedpage_maindiv">
               <Allpagenav/>
      <div className="infodiv">
-        <div className="quote 1">Finding the right <span className="word">TEAM</span> starts here!<br></br>
+        <div className="quote_1">Finding the right <br></br> <span className="word">TEAM</span> starts here!<br></br>
             <div className="quote_2">Let’s personalize your experience.</div>
-            <div className="getstarted_button" onClick={getstartedhandle}>Let's go</div>
+            <div className="getstarted_button" onClick={getstartedhandle}>Let's Bounce</div>
         
         </div>
         <div className="lotanimation"> 

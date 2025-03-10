@@ -8,9 +8,9 @@ const Allpagenav = (props) => {
     const [clicked , setclicked] = useState(false);
     const [namedata,setnamedata] = useState("");
     const profile_action = ()=>{
-       if(localStorage.getItem("user")){
+       if(sessionStorage.getItem("user")){
         
-        const username_from_storage = localStorage.getItem("user");
+        const username_from_storage = sessionStorage.getItem("user");
         const parseddata = JSON.parse(username_from_storage);
         setnamedata(parseddata.username);
        }

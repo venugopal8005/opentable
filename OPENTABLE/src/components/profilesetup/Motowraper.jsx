@@ -3,7 +3,7 @@ import Allpagenav from "./Allpagenav";
 import Moto from "./Moto";
 import Cabin from "./Cabin";
 const Motowraper = () => {
-      const [moto, setmoto] = useState("");
+      const [moto, setmoto] = useState((sessionStorage.getItem("motoresponce"))?sessionStorage.getItem("motoresponce"): "");
     
   return (
     <>

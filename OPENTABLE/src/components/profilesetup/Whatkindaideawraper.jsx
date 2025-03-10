@@ -5,7 +5,7 @@ import Cabin from "./Cabin";
 import { useState } from "react";
 
 const Whatkindaideawraper = (props) => {
-    const [whatkindidea , setwhatkindidea] = useState("");
+    const [whatkindidea , setwhatkindidea] = useState(sessionStorage.getItem("whatkindidea") || "");
   return (
     <>
       <Allpagenav />

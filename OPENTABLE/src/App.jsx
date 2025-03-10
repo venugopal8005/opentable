@@ -4,18 +4,16 @@ import Navbar from './components/Navbar'
 import Aboutus from './components/Aboutus'
 import Login from './components/Login'
 import Get_started from './components/Get_started'
-import Survey from './components/profilesetup/Survey'
-import Cabin from './components/profilesetup/Cabin'
 import Getstartedpage from './components/profilesetup/Getstartedpage'
-import Allpagenav from './components/profilesetup/Allpagenav'
 import { createBrowserRouter ,RouterProvider,Route} from 'react-router-dom'
-import Moto from './components/profilesetup/Moto'
 import Radiowraper from './components/profilesetup/Radiowraper'
-import Whatkindaidea from './components/profilesetup/Whatkindaidea'
 import Ideawraper from './components/profilesetup/Ideawraper'
 import Skillwraper from './components/profilesetup/Skillwraper'
 import Motowraper from './components/profilesetup/Motowraper'
 import Whatkindaideawraper from './components/profilesetup/Whatkindaideawraper'
+import HomeDashborad from './components/homedashboardfolder/HomeDashborad'
+import Profilesetupfinish from './components/profilesetup/Profilesetupfinish'
+import Skillset from './components/profilesetup/Skillset'
 function App() {
   const router = createBrowserRouter([
     {
@@ -57,11 +55,19 @@ function App() {
     },
     {
       path:"/idk",
-      element:<Survey/>
+      element:<Skillset/>
     },
     {
       path:"/profilesetup/what_kinda_idea",
       element:<Whatkindaideawraper/>
+    },
+    {
+      path:"/homedashboard",
+      element:<HomeDashborad/>
+    },
+    {
+      path:"/profilesetup/warping_up",
+      element:<Profilesetupfinish/>
     }
   ])
 

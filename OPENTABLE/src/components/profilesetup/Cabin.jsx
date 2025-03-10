@@ -5,9 +5,30 @@ import Moto from "./Moto";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-const Cabin = ({ radiofinally, idea, finalskills,moto , whatkindidea} ) => {
+const Cabin = ({ radiofinally, idea, finalskills,moto, whatkindidea,suggestedskills} ) => {
   const location = useLocation();
+const posttingprofile = async()=>{
+  const usernameres = JSON.parse(sessionStorage.getItem("user")).username;
+  const hasornotres = sessionStorage.getItem("radioresponce");
+  const whatkindaideares = sessionStorage.getItem("whatkindidea");
+  const ideares = sessionStorage.getItem("idearesponce");
+  const motores = sessionStorage.getItem("motoresponce");
+  const skillres = sessionStorage.getItem("skillsresponce").split(",");
 
+  console.log("posttingprofile");
+  try {
+    await axios.post("http://localhost:5000/profile",{
+      username:usernameres,
+      hasorhasnotidea:(hasornotres == "radio1")?true:false,
+      moto:motores,
+      skills: skillres,
+      idea:ideares,
+      whatkindidea:whatkindaideares
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
   const navigate = useNavigate();
   const routearray = [
     "/profilesetup/got_anything",
@@ -16,6 +37,7 @@ const Cabin = ({ radiofinally, idea, finalskills,moto , whatkindidea} ) => {
       : "/profilesetup/present_ur_idea",
     "/profilesetup/skills",
     "/profilesetup/let_us_know_about_urself",
+    "/profilesetup/warping_up"
   ];
   const routeindex = routearray.indexOf(location.pathname);
   const [currentroute, setcurrenroute] = useState(Math.abs(routeindex) + 1);
@@ -34,35 +56,30 @@ const Cabin = ({ radiofinally, idea, finalskills,moto , whatkindidea} ) => {
       navigate(routearray[currentroute]);
     }
     if (routeindex == 0) {
-      localStorage.setItem("radioresponce", radiofinally);
+      sessionStorage.setItem("radioresponce", radiofinally);
     }
     if (location.pathname == "/profilesetup/present_ur_idea") {
-      localStorage.setItem("idearesponce", idea);
+      sessionStorage.setItem("idearesponce", idea);
     }
     if (location.pathname == "/profilesetup/skills") {
-      localStorage.setItem("skillsresponce", finalskills);
+      sessionStorage.setItem("skillsresponce", finalskills);
+      sessionStorage.setItem("suggestedskills", suggestedskills);
+
     }
     if (location.pathname == "/profilesetup/let_us_know_about_urself") {
-      localStorage.setItem("motoresponce", moto);
-      async () => {
-        try {
-          const res = await axios.post("http://localhost:5000/profile", {
-            radio: localStorage.getItem("radioresponce"),
-            idea: localStorage.getItem("idearesponce"),
-            skills: localStorage.getItem("skillsresponce"),
-            moto: localStorage.getItem("motoresponce"),
-            whatkindidea: localStorage.getItem("whatkindidea") || "null",
-          });
-          
-        } catch (err) {
-          console.log(err);
-        }
-      }
-      
-      
+      sessionStorage.setItem("motoresponce", moto);
+      posttingprofile();    
+      navigate("/profilesetup/warping_up");
+
+
+
+
+
+    
+
     }
     if (location.pathname == "/profilesetup/what_kinda_idea") {
-      localStorage.setItem("whatkindidea", whatkindidea);
+      sessionStorage.setItem("whatkindidea", whatkindidea);
       
     }
   };

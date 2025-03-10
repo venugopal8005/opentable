@@ -1,13 +1,15 @@
-    const express = require("express");
+const express = require("express");
 const { registerUser, loginUser } = require("../controller/authuntication");
-const {settingupprofile} = require("../controller/usersetup");
+const {settingupprofile} = require("../controller/profilesetup");
+const {roadmapgen} = require("../controller/roadmapgen");
 
 const router = express.Router();
 
 
 router.post("/signup", registerUser);
 router.post("/login", loginUser);
-router.post("/profile", settingupprofile);
+router.post("/profile", settingupprofile); 
+router.post("/profile/roadmap",roadmapgen);
 
 
 module.exports = router;

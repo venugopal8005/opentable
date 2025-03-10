@@ -4,7 +4,8 @@ import Cabin from "./Cabin";
 import Allpagenav from "./Allpagenav";
 import { useState } from "react";
 const Ideawraper = () => {
-  const [idea, setidea] = useState("");
+  const pastidea = sessionStorage.getItem("idearesponce");
+    const [idea, setidea] = useState((pastidea)?pastidea:" ");
 
   return (
     <>

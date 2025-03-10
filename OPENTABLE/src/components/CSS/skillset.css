@@ -1,0 +1,73 @@
+.skillarea1 {
+    position: relative;
+    /* margin-top: 50px; */
+    /* margin-left: 10px; */
+    height: fit-content;
+    width: 41.5em;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid rgb(143, 139, 139);
+    padding-left: 5px;
+    /* background-color: aquamarine; */
+    margin-top: 0%;
+    left: -1px;
+  }
+  .inputtext {
+    border: 0px;
+    background-color: transparent;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    width: 200px;
+    height: 30px;
+  }
+  .inputtext:hover{
+      cursor: text;
+  }
+  .inputtext:focus {
+    outline: none;
+  }
+
+  .racomendationbar {
+    height: fit-content;
+    width: 200px;
+    position: absolute;
+    z-index: 1;
+    max-height: 200px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 1px 1px rgb(157, 157, 157);
+  }
+  .recomendedskill {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: 0.5px solid rgb(206, 206, 206);
+    margin: 1px;
+    height: fit-content;
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+    padding-top: 4.5px;
+    padding-bottom: 4.5px;
+    padding-left: 4px;
+  }
+  .recomendedskill:hover {
+    background-color: rgb(230, 230, 230);
+  }
+  .recomendedskillhigh{
+      display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: 0.5px solid rgb(206, 206, 206);
+    margin: 1px;
+    height: fit-content;
+    width: 100%;
+    padding-top: 4.5px;
+    padding-bottom: 4.5px;
+    background-color: rgb(230, 230, 230);
+    padding-left: 4px;
+  }
+  

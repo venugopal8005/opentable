@@ -75,9 +75,10 @@
     padding: 20px;    
     cursor: pointer;
     transition: all 0.3s ease;
+    text-align: center;
 }
 .loginbutton:hover{
-    background-color: rgb(88, 101, 242);
+    background-color: rgb(48, 65, 248);
     transform: scale(1.05);
 }
 .error{
@@ -102,4 +103,15 @@
     50% { transform: translateX(-10px) }
     75% { transform: translateX(10px) }
     100% { transform: translateX(0) }
+   }
+   .loadinganimationstyle{
+    position: relative;
+    height: fit-content;
+    right: 16%;
+    /* top: 60%; */
+    scale: 0.4;
+    /* background-color: aliceblue; */
+   }
+   .positionlogin{
+    margin-left: 35%;
    }

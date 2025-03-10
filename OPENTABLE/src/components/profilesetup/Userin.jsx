@@ -11,7 +11,7 @@ const Userin = ({usernamedisplay}) => {
       
         // alert("this is logouthandle");
         localStorage.removeItem("user");
-
+        sessionStorage.clear();
          navi("/");
     }
 
