@@ -44,7 +44,7 @@
   align-items: center;
   /* padding-left:20px ; */
 
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(255, 252, 236);
   height: fit-content;
   width: fit-content;
 }
@@ -84,7 +84,7 @@
   position: absolute;
   z-index: 1;
   max-height: 200px;
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(255, 252, 236);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0px 0px 1px 1px rgb(157, 157, 157);
@@ -98,7 +98,7 @@
   margin: 1px;
   height: fit-content;
   width: 100%;
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(255, 252, 236);
   padding-top: 4.5px;
   padding-bottom: 4.5px;
 
@@ -111,7 +111,7 @@
   position: relative;
   top: 60px;
   left: 30px;
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(255, 252, 236);
   width: 45%;
   height: 100%;
   scale: 1.1;
@@ -128,7 +128,7 @@
   
   padding-top: 4.5px;
   padding-bottom: 4.5px;
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(255, 252, 236);
 
   padding-left: 4px;
 }

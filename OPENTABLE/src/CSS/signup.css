@@ -3,16 +3,26 @@
 
 .logo{
     position: absolute;
-    left: 10px;
+    left: 40px;
     padding: 10px;
-    margin: 10px;
-    color: black;
-    font-family: "Poppins", sans-serif;
+    top: 20px;
+    color: rgb(255, 252, 236);
     font-weight: 700;
-    font-size: 20px;
     font-style: normal;
+    font-size: 28px;
+    animation: pagetransition 0.5s 0s 1 forwards;
 }
 
+@keyframes pagetransition {
+    0%{
+     left: 174px;
+   top: 26px;
+    }
+    100%{
+        top: 20px;
+        left: 40px;
+    }
+}
 .signuppage{
     display: flex;
     justify-content: center;
@@ -22,20 +32,30 @@
     /* background-color: black; */
     color: rgb(242, 243, 245);
     font-family: "Poppins", sans-serif;
-    background-image:url('https://img.freepik.com/free-vector/silhouette-pine-tree-landscape-against-moonlit-sky_1048-8247.jpg?t=st=1739697578~exp=1739701178~hmac=e9531ba5052ab4e8dec51097560980f3b955df038c9146526f6303d00310c9cd&w=1480');
-    background-size: cover;
+    background-image: url('../assets/imgs/noise-light.png');
+    background-color: rgb(49, 57, 251);
+    overflow: hidden;
+    opacity: 1;
 }
 .signup{
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 550px;
+    height: 500px;
     width: 480px;
-    background-color:rgb(49, 51, 56);
-    /* border-radius: 5px; */
+    background-color:rgb(255, 252, 236);
+    border-radius: 5px;
+    animation: logindiv 0.3s  0s 1 forwards ;
 
-
+}
+@keyframes logindiv {
+    from{
+        scale: 0.9;
+    }
+    to{
+        scale: 1;
+    }
 }
 .signupform{
     height: 80%;
@@ -54,9 +74,10 @@
     border: 0px;
     border-radius: 5px;
     padding: 5px;
-    background-color: rgb(30, 31, 34);
-    color: white;
-    padding-left: 5px;
+    background-color:rgb(255, 252, 236);
+    /* border: 0.5px solid rgb(43, 37, 199); */
+    box-shadow: 0px 0px 10px 1px  rgba(102, 133, 235, 0.453);
+    font-family: 'MarlinSoftBasic';
 }
 .loginbutton{
     margin : 10px;
@@ -64,11 +85,12 @@
 .heading{
     position: absolute;
     top: 0;
-    margin: 28px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
+    margin: 10px;
+    font-family: 'MarlinSoftBasic';
+    font-weight: 600;
     font-style: normal;
-    font-size: 60px;
+    color: rgb(43, 37, 199);
+    font-size: 70px;
     
 }
 .backimg{
@@ -84,13 +106,16 @@
     margin: 10px;
     /* border: 1px solid black; */
     border: 0;
-    color: rgb(242, 243, 245);
+    color: rgb(245, 245, 245);
     font-size: 20px;
-    background-color: rgb(88, 101, 242);
+    background-color:rgb(43, 37, 199);
     border-radius: 5px;
     padding: 20px;    
     cursor: pointer;
     transition: all 0.3s ease;
+    text-align: center;
+    font-family: 'MarlinSoftBasic';
+
 }
 .getstartedbutton:hover{
     background-color: rgb(56, 72, 244);

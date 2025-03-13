@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import "../CSS/Profilesetupfinish.css";
 import Skillset from "./Skillset";
-import axios from "axios";
-import { motion } from "framer-motion";
+import Roadmapgenaration from "./Roadmapgenaration";
 const Profilesetupfinish = (props) => {
-  const [runroadmap, setrunroadmap] = useState(1);
-  const [roadmaploading, setroadmaploading] = useState(false);
-  const [roadmapres, setroadmapres] = useState("");
-  const [roadmapdone , setroadmapdone] = useState(false);
+  const [hitroadmap,sethitroadmap] = useState(false);
+
   const [description, setdescription] = useState(
     sessionStorage.getItem("idearesponce")
       ? sessionStorage.getItem("idearesponce")
@@ -26,55 +23,9 @@ const Profilesetupfinish = (props) => {
   const handlemoto = (e) => {
     setDescriptionmoto(e.target.value);
   };
-  const raodmapgen = async () => {
-    try {
-      setroadmaploading(true);
-
-      console.log("gen called!!");
-      const res = await axios.post("http://localhost:5000/profile/roadmap", {
-        idea: description,
-      });
-      setroadmapdone(true);
-      setroadmapres(res.data);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setroadmaploading(false);
-    }
-  };
-  if (runroadmap) {
-    raodmapgen();
-    setrunroadmap(0);
+  const handlegen = ()=>{
+sethitroadmap(true);
   }
-  const formatText = (text) => {
-    if (!text) return null;
-
-    const sections = text.split(/\d+\.\s/).slice(1); 
-
-    return sections.map((section, index) => {
-      const lines = section.split("\n"); 
-      const title = lines[0].trim();
-
-      const content = lines.slice(1).map((line, idx) => {
-        if (line.startsWith("   -")) return <ul key={idx}>{line.slice(4)}</ul>;
-        return <p key={idx}>{line.trim()}</p>; 
-      });
-console.log(content);
-      return (
-        <motion.div
-        key={index}
-        className="roadmap-section"
-        initial={{ opacity: 0, y: 20 }}  // Start faded and shifted down
-        animate={{ opacity: 1, y: 0 }}  // Fade in and move up
-        transition={{ duration: 0.5, delay: index * 0.2 }} // Stagger effect
-      >
-        <h2>{title}</h2>
-        <ul>{content}</ul>  
-      </motion.div>
-      );
-    });
-  };
-
   return (
     <>
       <div className="wholewrapup">
@@ -114,27 +65,17 @@ console.log(content);
                     id="motowrap"
                     className="discriptionboxwrap"
                   >
-                    {description}
+                    {descriptionmoto}
                   </textarea>
                 </div>
               </div>
             </div>
-            <div className="sideb">
-              {roadmaploading ? (
-                <div className="skeleton-container">
-                  {[...Array(33)].map((_, i) => (
-                    <div
-                      key={i}
-                      className={`skeleton-line ${i === 0 ? "indent" : ""} ${
-                        i === 33 - 1 ? "short-line" : ""
-                      }`}
-                    ></div>
-                  ))}
-                </div>
-              ) : (
-                <div className="roadmapgenarated sidea1">{formatText(roadmapres)}</div>
-              )}
-            </div>
+            {
+              (hitroadmap)? (<Roadmapgenaration description =  {description} hitroadmap={hitroadmap} sethitroadmap ={sethitroadmap}/>):(<button onClick={handlegen}>genarate roadmap</button>)
+
+
+            }
+            
           </div>
         </div>
       </div>

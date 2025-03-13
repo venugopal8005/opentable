@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(255, 252, 236);
 }
 .wrapupinner {
   display: block;
@@ -19,7 +19,7 @@
   display: flex;
   /* align-items: center; */
   justify-content: center;
-  font-family: "Poppins", sans-serif;
+  font-family: "MarlinSoftBasic";
   font-size: 300%;
   font-weight: 600;
   background-color: transparent;
@@ -52,11 +52,11 @@
   /* margin-left: 10px; */
   height: 300px;
   width: 600px;
-  font-family: "Poppins", sans-serif;
+  font-family: "MarlinSoftBasic";
   padding: 15px;
   font-size: 15px;
   font-weight: 300;
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(255, 252, 236);
 
   text-decoration: none;
   border-radius: 10px;
@@ -70,7 +70,7 @@
   position: absolute;
   top: 5px;
   left: 15px;
-  font-family: "Poppins", sans-serif;
+  font-family: "MarlinSoftBasic";
   color: rgb(52, 68, 239);
   font-weight: 400;
 
@@ -80,7 +80,7 @@
   top: 1px;
   position: relative;
   left: 15px;
-  font-family: "Poppins", sans-serif;
+  font-family: "MarlinSoftBasic";
   color: rgb(52, 68, 239);
   font-weight: 400;
 
@@ -90,7 +90,7 @@
   top: 1px;
   position: relative;
   left: 5px;
-  font-family: "Poppins", sans-serif;
+  font-family: "MarlinSoftBasic";
   color: rgb(52, 68, 239);
   font-weight: 400;
   font-size: 1.2em;
@@ -127,9 +127,8 @@
   margin-left: 10px;
   height: 300px;
   width: 600px;
-  background-color: rgb(245, 245, 245);
-
-  font-family: "Poppins", sans-serif;
+  background-color: rgb(255, 252, 236);
+  font-family: "MarlinSoftBasic";
   padding: 15px;
   font-size: 15px;
   font-weight: 300;
@@ -208,7 +207,7 @@
     margin-left: 81px;
     margin-right: 80px;
     /* background-color: rgba(232, 25, 25, 0.147); */
-    font-family: "Poppins", sans-serif;
+    font-family: "MarlinSoftBasic";
   }
 h2 {
   color: #007bff;

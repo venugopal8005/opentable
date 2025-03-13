@@ -48,7 +48,7 @@ const posttingprofile = async()=>{
     setcurrenroute(currentroute - 1);
   };
   const handlefront = () => {
-    if (currentroute == 4) {
+    if (currentroute == 5) {
       navigate("/");
     } else {
       setcurrenroute(currentroute + 1);

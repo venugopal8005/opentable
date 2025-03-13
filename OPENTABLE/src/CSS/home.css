@@ -1,52 +1,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@font-face {
+  font-family: 'MarlinSoftBasic';
+  src: url('../../public/assests/fonts/FontMesa\ -\ MarlinSoftBasic-Regular.otf') format('opentype');
+}
 .seg1 {
     position: relative;
-    height: 93svh;
+    height: 100svh;
+    background-image: url('../assets/imgs/noise-light.png');
     width: 100%;
     display: flex;
     justify-content: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+
+    /* background-repeat: no-repeat; */
+    
+
+    
+    background-color: rgb(49, 57, 251);
     overflow: hidden;
     opacity: 1;
 }
 .qoute {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    letter-spacing: 5px;
-    position: absolute;
-    top: 60px;
-    /* border: 1px solid; */
-    height: fit-content;
-    width: fit-content;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 70px;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align */
+  position: absolute;
+  top: 180px;
+  
 }
+
+.linetag1 {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: -15px; /* Moves it upwards */
+}
+
+.linetag2 {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: -20px; /* Moves it upwards */
+}
+
+.linetag3 {
+  font-size: 5rem;
+  font-weight: bold;
+}
+
 
 .tagline{
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: 390px;
+    margin-top: 300px;  
     /* border: 1px solid; */
     height: fit-content;
     color: white;
     width: fit-content;
-    letter-spacing: 4px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-    font-size: 20px;
+    letter-spacing: 0.5px;
+    font-family: 'MarlinSoftBasic', sans-serif;
+    color: rgb(255, 252, 236);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1.3cap;
 }
-.setgo {
-    --b: 3px;   /* border thickness */
-    --s: .15em; /* size of the corner */
+/* .setgo {
+    --b: 3px;  
+    --s: .15em;
     --c: rgb(52, 68, 239);
     padding: calc(.05em + var(--s)) calc(.3em + var(--s));
     --_p: var(--s);
@@ -56,30 +75,32 @@
     transition: .3s linear, color 0s, background-color 0s;
     outline: var(--b) solid #ffffff00;
     outline-offset: .2em;
-  }
-  .setgo:hover,
-  .setgo:focus-visible{
-    --_p: 0px;
-    outline-color: var(--c);
-    outline-offset: .05em;
-  }
-  .setgo:active {
-    background: var(--c);
-    color: #fff;
-  }
+  } */
   .setgo {
-    letter-spacing: 4px;
-    font-family: "Poppins", sans-serif;
+  letter-spacing: 0cap;
+    font-family: 'MarlinSoftBasic';
     font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-style: normal;
-    font-size: 30px;
+    font-size: 15px;
     cursor: pointer;
     border: none;
-    color: black;
+    /* color: black; */
     margin: .1em;
     height: fit-content;
+    width: 100px;
+    padding:10px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
     position: relative;
-    top: 500px;
+    top: 350px;
+    transition: .3s linear, color 0s, background-color 0s;
+    color: black;
+  }
+  .setgo:hover{
+    scale: 1.1;
   }
 a{
     text-decoration: none;
@@ -87,17 +108,43 @@ color: black;
 }
 .idea{
     color: #FCCD2A;
+    font-weight: 700;
 }
 .life{
-    color:rgb(52, 68, 239);
+    color:rgb(255, 252, 236)
 }
 .seg1dup{
   display: flex;
   justify-content: center;
-
+top: 10%;
   position: relative;
 
-  height: 100%;
+  height: fit-content;
   width: 100%;
-  background-color: rgba(52, 68, 239, 0.426);
+  
 }
+.linetag1,.linetag2,.linetag3 ,.life{
+  font-family: 'MarlinSoftBasic', sans-serif;
+  color: rgb(255, 252, 236);
+  font-weight: 700;
+  letter-spacing: 0cap;
+  /* position: relative; */
+
+
+}
+/* .linetag1 {
+  
+  font-weight: bold;
+  margin-bottom: -15px; 
+}
+
+.linetag2 {
+  
+  font-weight: bold;
+  margin-bottom: -15px; 
+}
+
+.linetag3 {
+  
+  font-weight: bold;
+} */

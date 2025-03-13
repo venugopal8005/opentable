@@ -38,7 +38,7 @@ position: relative;
     height: 200px;
     width: 300px;
     border-radius: 9px;
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(255, 252, 236);
     border: 2px solid rgb(181, 181, 181);
     cursor: pointer;
 }
@@ -53,8 +53,8 @@ position: relative;
     height: 200px;
     width: 300px;
     border-radius: 9px;
-    background-color: rgb(245, 245, 245);
-    border: 2px solid rgb(0, 0, 0);
+    background-color: rgb(255, 252, 236);
+    border: 2px solid rgb(52, 68, 239);
     cursor: pointer;
     animation: checkanimation 0.4s ease 0s 1 forwards;
 }
@@ -79,7 +79,7 @@ position: relative;
 
 }
 .choices:hover{
-    border:2px solid black;
+    border:2px solid rgb(52, 68, 239);
 }
 
 .hasicon{

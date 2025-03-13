@@ -16,8 +16,16 @@ console.log("genarating....");
     try {
         const response = await cohere.generate({
             model: "command",
-            prompt: `Generate a structured roadmap for this startup idea it should be more specific with subjected headings(titles): ${idea}`,
-            max_tokens: 10000, // Increased to get a more complete response
+            prompt: `Generate a structured roadmap for this startup idea. 
+            Format the output strictly as follows:
+            - Titles (headings) should be prefixed with "### ".
+            - Subpoints should start with "- ".
+            - Steps or explanations should be in normal sentences.
+            - No other symbols should be used.
+            - Genarate only once.
+            
+            Startup Idea: ${idea}`,     
+                        max_tokens: 10000, // Increased to get a more complete response
         });
 
         let roadmap = response.generations[0].text;

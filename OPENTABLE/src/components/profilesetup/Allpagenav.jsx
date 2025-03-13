@@ -22,7 +22,7 @@ const Allpagenav = (props) => {
 
     
         <div className="navbartype">
-        <div className="logo"><a href="/">OpenTable</a></div>
+        <div className="logoallpagenav"><a href="/" className="allpagenavlogo">OpenTab</a></div>
         <div className="profileicon" onClick={profile_action}>
         <CgProfile />
         

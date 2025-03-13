@@ -2,25 +2,34 @@
 .nav{
     display: flex;
     justify-content: center;
-    width: 100%;
-    height: auto;
-    background-color: rgba(52, 68, 239, 0.601);
+    position: absolute;
+    z-index: 1;
+margin-left: 10%;
+top: 3%;
+    width: 80%;
+    height: 7svh;
+    /* background-color: black; */
+
 }
 .navdiv{
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
+    color: rgb(255, 252, 236);
+
+    font-family: 'MarlinSoftBasic';
     
     
 }
 .c{
     position: absolute;
-    right: 120px;    
+    right: 140px;    
 }
 .d{
     position: absolute;
     right: 20px;
-    background-color:rgb(0, 96, 58);
+    background-color: rgb(255, 255, 255);
+    color: rgb(43, 37, 199);
 }
 .Link{
     text-decoration: none;
@@ -30,19 +39,26 @@
     font-style: normal;
 }
 .navdiv:hover{
-    background-color:rgb(0, 96, 58);
+    background-color:rgb(43, 37, 199);
     color: white;
     transition-delay: 0.1s;
     transition-duration: 0.2s;
 }
-.logo{
+.logo1{
     position: absolute;
-    left: 10px;
+    left: 20px;
     padding: 10px;
-    margin: 10px;
-    color: black;
+    /* background-color: aqua; */
+    top: -2.5px;
+    color: rgb(255, 252, 236);
     font-family: "Poppins", sans-serif;
     font-weight: 700;
-    font-size: 20px;
     font-style: normal;
+    font-size: 28px;
+}
+a{
+    color: rgb(255, 252, 236);
+    font-family: 'MarlinSoftBasic';
+    font-weight: 800;
+    /* font-size: 0px; */
 }

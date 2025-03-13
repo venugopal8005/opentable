@@ -43,14 +43,14 @@ setloading(false);
   return (
     
       <>
-      <div className="logo"><a href="/">OpenTable</a></div>
+      <div className="logologin"><a href="/">OpenTab</a></div>
       <div className="loginpage">
         
         <div className="login">
-          <div className="heading">Login</div>
+          <div className="heading1">Login</div>
             <form className="loginform"  onSubmit={handleloginsubmit}>
-              <input className="inp username" type="text" placeholder="Username" name="username"  onChange={handleloginchange} required />
-              <input className= "inp password"type="password" placeholder="Password" name="password" onChange={handleloginchange} required />
+              <input className="inp1 username" type="text" placeholder="Username" name="username"  onChange={handleloginchange} required />
+              <input className= "inp1 password"type="password" placeholder="Password" name="password" onChange={handleloginchange} required />
               <button type="submit"  className="loginbutton">
                 {loading ? <span className="positionlogin">Login</span>:"Login"}
                     {loading ? <div className="loadinganimationstyle" > <Player
@@ -61,7 +61,7 @@ setloading(false);
 
             /></div> : " "}
               </button>
-              <p>Don't have an account? <a href="/getstarted">Get started</a></p>
+              <p>Don't have an account? <a href="/getstarted" className="getstartedlogin">Get started</a></p>
             </form>
             <div className="error warnings">{errorwarning}</div>
           

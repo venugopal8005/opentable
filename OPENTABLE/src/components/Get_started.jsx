@@ -34,7 +34,7 @@ const handlesubmit = async (e) => {
 
   return (
     <>
-    <div className="logo"><a href="/">OpenTable</a></div>
+    <div className="logo"><a href="/">OpenTab</a></div>
     <div className="signuppage">
       
       <div className="signup">
@@ -45,7 +45,7 @@ const handlesubmit = async (e) => {
               <input className="inp username" name= "username" type="text" placeholder="Username" onChange={handlechange}required />
               <input className= "inp password" name = "password" type="password" placeholder="Password" onChange={handlechange} required/>
               <button type="submit" className="getstartedbutton">Continue</button>
-              <p>Already have an account? <a href="/login">Login</a></p>
+              <p>Already have an account? <a href="/login" className="getstartedlogin">Login</a></p>
             </form>
             <div className="errorwarning">{errwarning}</div>
         
