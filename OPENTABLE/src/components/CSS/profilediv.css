@@ -3,7 +3,7 @@
     position: absolute;
     height: 200px;
     width: 220px;
-    background-color:rgba(245, 245, 245, 0.778);
+    background-color: rgb(255, 252, 236);
     right: 3.5%;
     z-index: 100;
     box-shadow: 0px 0px 3px rgb(165, 162, 162);
