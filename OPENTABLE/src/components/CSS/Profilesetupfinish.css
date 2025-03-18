@@ -9,21 +9,37 @@
 }
 .wrapupinner {
   display: block;
-  height: 95%;
+  position: relative;
+  top: 30px;
+  height: 90%;
   width: 95%;
+  /* background-color: yellowgreen; */
 }
 .wrapupheading {
-  height: 10%;
+  height: fit-content;
   width: 100%;
-  /* background-color: red; */
   display: flex;
   /* align-items: center; */
   justify-content: center;
   font-family: "MarlinSoftBasic";
-  font-size: 300%;
+  font-size: 200%;
   font-weight: 600;
+  padding-top: 1%;
+  padding-bottom: 1%;
   background-color: transparent;
+  /* background-color: red; */
+
   color: rgb(52, 68, 239);
+}
+.logoprofilesetupfin{
+  position: absolute;
+  left: 68px;
+  padding: 10px;
+  top: 15px;
+  color: rgb(255, 252, 236);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 28px;
 }
 .wraupstuff {
   display: flex;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../CSS/Profilesetupfinish.css";
 import Skillset from "./Skillset";
+import Allpagenav from "./Allpagenav";
 import Roadmapgenaration from "./Roadmapgenaration";
 const Profilesetupfinish = (props) => {
   const [hitroadmap,sethitroadmap] = useState(false);
@@ -29,8 +30,11 @@ sethitroadmap(true);
   return (
     <>
       <div className="wholewrapup">
+<Allpagenav/>
+
         <div className="wrapupinner">
-          <div className="wrapupheading">Let's Wrap Up</div>
+        
+        <div className="wrapupheading">Let's Wrap Up</div>
           <div className="wraupstuff">
             <div className="sidea">
               <div>
