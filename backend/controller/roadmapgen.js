@@ -16,7 +16,7 @@ console.log("genarating....");
     try {
         const response = await cohere.generate({
             model: "command",
-            prompt: `Generate a structured roadmap for this startup idea. 
+            prompt: `Generate a structured Technical roadmap for this startup idea. 
             Format the output strictly as follows:
             - Titles (headings) should be prefixed with "### ".
             - Subpoints should start with "- ".
